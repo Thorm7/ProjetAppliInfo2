@@ -1,28 +1,36 @@
+using Npgsql;
+using LiberNet.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var connectionString = builder.Configuration
+    .GetConnectionString("DefaultConnection");
+
+builder.Services.AddScoped(_ =>
+{
+    var connection = new NpgsqlConnection(connectionString);
+    connection.Open();
+    return connection;
+});
+
+builder.Services.AddScoped<LivreService>();
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-
-// Middelware, couche que chaque requete http traverse
+// Middleware : couche que chaque requête HTTP traverse
 app.UseHttpsRedirection();
-
 app.UseRouting();
-
 app.UseAuthorization();
-
 app.MapStaticAssets();
 app.MapRazorPages()
-   .WithStaticAssets();
+    .WithStaticAssets();
 
 app.Run();
