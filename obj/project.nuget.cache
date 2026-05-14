@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Qp39l8dZZIk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\thoma\\OneDrive - HEPH-Condorcet\\Examen\\Application informatique 2\\LiberNet\\LiberNet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thoma\\.nuget\\packages\\npgsql\\10.0.2\\npgsql.10.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
