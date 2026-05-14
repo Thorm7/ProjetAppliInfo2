@@ -3,6 +3,7 @@ using LiberNet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 var connectionString = builder.Configuration
     .GetConnectionString("DefaultConnection");
 
@@ -14,7 +15,9 @@ builder.Services.AddScoped(_ =>
 });
 
 builder.Services.AddScoped<LivreService>();
-
+builder.Services.AddScoped<CategorieService>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<EmpruntService>();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

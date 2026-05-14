@@ -1,0 +1,10 @@
+﻿namespace LiberNet.Models;
+
+public class User
+{
+    public int Id { get; set; }
+    public string Nom { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string MotDePasseHash { get; set; } = string.Empty;
+    public string Role { get; set; } = "Membre";
+}
