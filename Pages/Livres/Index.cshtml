@@ -1,0 +1,28 @@
+﻿@page
+@model LiberNet.Pages.Livres.IndexModel
+
+<h1>Catalogue des livres</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Disponible</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var livre in Model.Livres)
+    {
+        <tr>
+            <td>@livre.Titre</td>
+            <td>@livre.Auteur</td>
+            <td>@(livre.Disponible ? "Oui" : "Non")</td>
+            <td>
+                <a href="/Livres/Details/@livre.Id">Détails</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

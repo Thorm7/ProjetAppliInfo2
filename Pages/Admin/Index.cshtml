@@ -1,0 +1,60 @@
+﻿@page
+@model LiberNet.Pages.Admin.Livres.IndexModel
+
+<h1>Gestion des livres</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<h2>Ajouter un livre</h2>
+<form method="post" asp-page-handler="Add">
+    <div class="mb-3">
+        <label asp-for="Livre.Titre" class="form-label">Titre</label>
+        <input asp-for="Livre.Titre" class="form-control" />
+        <span asp-validation-for="Livre.Titre" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Livre.Auteur" class="form-label">Auteur</label>
+        <input asp-for="Livre.Auteur" class="form-control" />
+        <span asp-validation-for="Livre.Auteur" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Livre.Description" class="form-label">Description</label>
+        <textarea asp-for="Livre.Description" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Livre.CategorieId" class="form-label">Catégorie ID</label>
+        <input asp-for="Livre.CategorieId" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+
+<h2 class="mt-4">Liste des livres</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Disponible</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var livre in Model.Livres)
+        {
+            <tr>
+                <td>@livre.Titre</td>
+                <td>@livre.Auteur</td>
+                <td>@(livre.Disponible ? "Oui" : "Non")</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete">
+                        <input type="hidden" name="id" value="@livre.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
