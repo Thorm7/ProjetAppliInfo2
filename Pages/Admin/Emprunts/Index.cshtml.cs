@@ -2,9 +2,11 @@ using LiberNet.Models;
 using LiberNet.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LiberNet.Pages.Admin.Emprunts;
 
+[Authorize(Roles = "Admin")]
 public class IndexModel : PageModel
 {
     private readonly EmpruntService _empruntService;

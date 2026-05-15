@@ -3,7 +3,6 @@ using LiberNet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 var connectionString = builder.Configuration
     .GetConnectionString("DefaultConnection");
 
@@ -18,7 +17,19 @@ builder.Services.AddScoped<LivreService>();
 builder.Services.AddScoped<CategorieService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<EmpruntService>();
-builder.Services.AddRazorPages();
+
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Admin");
+});
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", options =>
+    {
+        options.LoginPath = "/Compte/Login";
+        options.AccessDeniedPath = "/Compte/AccessDenied";
+    });
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -28,10 +39,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-// Middleware : couche que chaque requête HTTP traverse
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseAuthorization();
+app.UseAuthentication();
 app.MapStaticAssets();
 app.MapRazorPages()
     .WithStaticAssets();

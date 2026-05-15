@@ -2,9 +2,11 @@ using LiberNet.Models;
 using LiberNet.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LiberNet.Pages.Admin.Livres;
 
+[Authorize(Roles = "Admin")]
 public class IndexModel : PageModel
 {
     private readonly LivreService _livreService;
