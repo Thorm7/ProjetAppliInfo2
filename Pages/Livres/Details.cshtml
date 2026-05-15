@@ -1,4 +1,4 @@
-﻿@page "/Livres/Details/{id:int}"
+@page "/Livres/Details/{id:int}"
 @model LiberNet.Pages.Livres.DetailsModel
 
 <h1>@Model.Livre?.Titre</h1>
@@ -14,4 +14,4 @@
     <dd class="col-sm-10">@(Model.Livre?.Disponible == true ? "Oui" : "Non")</dd>
 </dl>
 
-<a href="/Livres">Retour à la liste</a>
+<a href="/Livres" class="btn btn-secondary">Retour à la liste</a>

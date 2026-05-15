@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LiberNet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f59ae1aa9bb99bff77ef1ce9da90f2d1f89222d1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+657adb3912ce1dadff220f5cfe6ffdc006607683")]
 [assembly: System.Reflection.AssemblyProductAttribute("LiberNet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LiberNet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

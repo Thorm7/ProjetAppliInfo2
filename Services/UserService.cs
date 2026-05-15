@@ -13,7 +13,7 @@ public class UserService
         _connection = connection;
     }
 
-    public User? GetByEmail(string email)
+    public Utilisateur? GetByEmail(string email)
     {
         var command = _connection.CreateCommand();
         command.CommandText = "SELECT Id, Nom, Email, MotDePasseHash, Role FROM Users WHERE Email = @email";
@@ -23,7 +23,7 @@ public class UserService
 
         if (reader.Read())
         {
-            return new User
+            return new Utilisateur
             {
                 Id = reader.GetInt32(0),
                 Nom = reader.GetString(1),
@@ -36,15 +36,36 @@ public class UserService
         return null;
     }
 
-    public void Add(User user)
+    public void Add(Utilisateur utilisateur)
     {
         var command = _connection.CreateCommand();
         command.CommandText = @"INSERT INTO Users (Nom, Email, MotDePasseHash, Role) 
                                 VALUES (@nom, @email, @motDePasseHash, @role)";
-        command.AddParameter("@nom", user.Nom);
-        command.AddParameter("@email", user.Email);
-        command.AddParameter("@motDePasseHash", user.MotDePasseHash);
-        command.AddParameter("@role", user.Role);
+        command.AddParameter("@nom", utilisateur.Nom);
+        command.AddParameter("@email", utilisateur.Email);
+        command.AddParameter("@motDePasseHash", utilisateur.MotDePasseHash);
+        command.AddParameter("@role", utilisateur.Role);
         command.ExecuteNonQuery();
+    }
+    public List<Utilisateur> GetAll()
+    {
+        var command = _connection.CreateCommand();
+        command.CommandText = "SELECT Id, Nom, Email, Role FROM Users";
+
+        using var reader = command.ExecuteReader();
+        var users = new List<Utilisateur>();
+
+        while (reader.Read())
+        {
+            users.Add(new Utilisateur
+            {
+                Id = reader.GetInt32(0),
+                Nom = reader.GetString(1),
+                Email = reader.GetString(2),
+                Role = reader.GetString(3)
+            });
+        }
+
+        return users;
     }
 }

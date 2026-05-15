@@ -22,12 +22,20 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Categorie.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllLmNzaHRtbA==
+[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Emprunts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRW1wcnVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Livres/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGl2cmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Error.cshtml]
@@ -44,10 +52,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Livres/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGl2cmVzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Shared/_ValidationScriptsPartial.cshtml]

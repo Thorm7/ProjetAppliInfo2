@@ -1,0 +1,43 @@
+@page
+@model LiberNet.Pages.Admin.Emprunts.IndexModel
+
+<h1>Gestion des emprunts</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID User</th>
+            <th>ID Livre</th>
+            <th>Date emprunt</th>
+            <th>Date retour</th>
+            <th>Statut</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emprunt in Model.Emprunts)
+        {
+            <tr>
+                <td>@emprunt.UserId</td>
+                <td>@emprunt.LivreId</td>
+                <td>@emprunt.DateEmprunt</td>
+                <td>@(emprunt.DateRetour?.ToString() ?? "-")</td>
+                <td>@emprunt.Statut</td>
+                <td>
+                    @if (emprunt.Statut == "EnCours")
+                    {
+                        <form method="post" asp-page-handler="Retourner">
+                            <input type="hidden" name="id" value="@emprunt.Id" />
+                            <button type="submit" class="btn btn-warning btn-sm">Retourner</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

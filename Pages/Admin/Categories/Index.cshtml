@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model LiberNet.Pages.Admin.Categories.IndexModel
 
 <h1>Gestion des catégories</h1>
@@ -21,23 +21,23 @@
 <h2 class="mt-4">Liste des catégories</h2>
 <table class="table">
     <thead>
-    <tr>
-        <th>Nom</th>
-        <th>Actions</th>
-    </tr>
+        <tr>
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var categorie in Model.Categories)
-    {
-        <tr>
-            <td>@categorie.Nom</td>
-            <td>
-                <form method="post" asp-page-handler="Delete">
-                    <input type="hidden" name="id" value="@categorie.Id" />
-                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                </form>
-            </td>
-        </tr>
-    }
+        @foreach (var categorie in Model.Categories)
+        {
+            <tr>
+                <td>@categorie.Nom</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete">
+                        <input type="hidden" name="id" value="@categorie.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -1,4 +1,4 @@
-﻿using LiberNet.Models;
+using LiberNet.Models;
 using LiberNet.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

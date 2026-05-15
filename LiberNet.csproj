@@ -10,4 +10,14 @@
     <PackageReference Include="Npgsql" Version="10.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\User\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Admin\Categorie.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Admin\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Admin\User\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Emprunt\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Livres\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Livres\Index.cshtml" />
+  </ItemGroup>
+
 </Project>
