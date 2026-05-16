@@ -12,6 +12,25 @@
 
     <dt class="col-sm-2">Disponible</dt>
     <dd class="col-sm-10">@(Model.Livre?.Disponible == true ? "Oui" : "Non")</dd>
+
+    <dt class="col-sm-2">Stock</dt>
+    <dd class="col-sm-10">@Model.Livre?.Stock</dd>
 </dl>
 
-<a href="/Livres" class="btn btn-secondary">Retour à la liste</a>
+@if (User.Identity!.IsAuthenticated && Model.Livre?.Stock > 0)
+{
+    <form method="post" asp-page-handler="Emprunter">
+        <input type="hidden" name="id" value="@Model.Livre?.Id" />
+        <button type="submit" class="btn btn-primary">Emprunter ce livre</button>
+    </form>
+}
+else if (Model.Livre?.Stock == 0)
+{
+    <div class="alert alert-warning">Ce livre n'est plus disponible.</div>
+}
+else
+{
+    <a href="/Compte/Login" class="btn btn-outline-primary">Connectez-vous pour emprunter</a>
+}
+
+<a href="/Livres" class="btn btn-secondary mt-2">Retour à la liste</a>

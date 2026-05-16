@@ -1,7 +1,8 @@
 using LiberNet.Models;
 using LiberNet.Services;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LiberNet.Pages.Admin.Users;
 
@@ -20,5 +21,12 @@ public class IndexModel : PageModel
     public void OnGet()
     {
         Users = _userService.GetAll();
+    }
+
+    public IActionResult OnPostDelete(int id)
+    {
+        _userService.Delete(id);
+        TempData["Success"] = "Utilisateur supprimé avec succès !";
+        return RedirectToPage();
     }
 }

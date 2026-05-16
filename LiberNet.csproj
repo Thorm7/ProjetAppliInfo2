@@ -21,8 +21,4 @@
     <_ContentIncludedByDefault Remove="Pages\Livres\Index.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Error\" />
-  </ItemGroup>
-
 </Project>

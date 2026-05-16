@@ -3,22 +3,34 @@
 
 <h1>Gestion des utilisateurs</h1>
 
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
 <table class="table">
     <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Email</th>
-            <th>Rôle</th>
-        </tr>
+    <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var user in Model.Users)
-        {
-            <tr>
-                <td>@user.Nom</td>
-                <td>@user.Email</td>
-                <td>@user.Role</td>
-            </tr>
-        }
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td>@user.Nom</td>
+            <td>@user.Email</td>
+            <td>@user.Role</td>
+            <td>
+                <form method="post" asp-page-handler="Delete">
+                    <input type="hidden" name="id" value="@user.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+    }
     </tbody>
 </table>

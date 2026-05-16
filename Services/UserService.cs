@@ -68,4 +68,11 @@ public class UserService
 
         return users;
     }
+    public void Delete(int id)
+    {
+        var command = _connection.CreateCommand();
+        command.CommandText = "DELETE FROM Users WHERE Id = @id";
+        command.AddParameter("@id", id);
+        command.ExecuteNonQuery();
+    }
 }

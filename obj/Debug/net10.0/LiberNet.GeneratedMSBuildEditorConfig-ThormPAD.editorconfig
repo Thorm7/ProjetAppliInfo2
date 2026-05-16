@@ -30,10 +30,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRW1wcnVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Livres/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGl2cmVzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Admin/Livres/Export.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGl2cmVzXEV4cG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,10 +44,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Compte/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHRlXEFjY2Vzc0RlbmllZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Compte/Emprunts.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHRlXEVtcHJ1bnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/thoma/OneDrive - HEPH-Condorcet/Examen/Application informatique 2/LiberNet/Pages/Compte/Login.cshtml]

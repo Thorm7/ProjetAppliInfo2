@@ -3,6 +3,8 @@
 
 <h1>Gestion des livres</h1>
 
+<a href="/Admin/Livres/Export" class="btn btn-success mb-3">⬇ Exporter en CSV</a>
+
 @if (TempData["Success"] != null)
 {
     <div class="alert alert-success">@TempData["Success"]</div>
@@ -25,6 +27,11 @@
         <textarea asp-for="Livre.Description" class="form-control"></textarea>
     </div>
     <div class="mb-3">
+        <label asp-for="Livre.Stock" class="form-label">Stock</label>
+        <input asp-for="Livre.Stock" type="number" class="form-control" />
+        <span asp-validation-for="Livre.Stock" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
         <label asp-for="Livre.CategorieId" class="form-label">Catégorie</label>
         <select asp-for="Livre.CategorieId" asp-items="Model.CategorieOptions" class="form-control">
             <option value="">-- Choisissez une catégorie --</option>
@@ -40,6 +47,7 @@
         <tr>
             <th>Titre</th>
             <th>Auteur</th>
+            <th>Stock</th>
             <th>Disponible</th>
             <th>Actions</th>
         </tr>
@@ -50,9 +58,11 @@
             <tr>
                 <td>@livre.Titre</td>
                 <td>@livre.Auteur</td>
+                <td>@livre.Stock</td>
                 <td>@(livre.Disponible ? "Oui" : "Non")</td>
                 <td>
-                    <form method="post" asp-page-handler="Delete">
+                    <a asp-page="Edit" asp-route-id="@livre.Id" class="btn btn-warning btn-sm">Modifier</a>
+                    <form method="post" asp-page-handler="Delete" style="display:inline">
                         <input type="hidden" name="id" value="@livre.Id" />
                         <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                     </form>
