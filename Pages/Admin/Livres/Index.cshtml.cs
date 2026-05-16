@@ -1,8 +1,9 @@
 using LiberNet.Models;
 using LiberNet.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LiberNet.Pages.Admin.Livres;
 
@@ -10,27 +11,41 @@ namespace LiberNet.Pages.Admin.Livres;
 public class IndexModel : PageModel
 {
     private readonly LivreService _livreService;
+    private readonly CategorieService _categorieService;
 
     public List<Livre> Livres { get; set; } = new();
+    public List<SelectListItem> CategorieOptions { get; set; } = new();
 
     [BindProperty]
     public Livre Livre { get; set; } = new();
 
-    public IndexModel(LivreService livreService)
+    public IndexModel(LivreService livreService, CategorieService categorieService)
     {
         _livreService = livreService;
+        _categorieService = categorieService;
+    }
+
+    private void LoadOptions()
+    {
+        Livres = _livreService.GetAll();
+        CategorieOptions = _categorieService.GetAll()
+            .Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Nom
+            }).ToList();
     }
 
     public void OnGet()
     {
-        Livres = _livreService.GetAll();
+        LoadOptions();
     }
 
     public IActionResult OnPostAdd()
     {
         if (!ModelState.IsValid)
         {
-            Livres = _livreService.GetAll();
+            LoadOptions();
             return Page();
         }
 

@@ -25,8 +25,11 @@
         <textarea asp-for="Livre.Description" class="form-control"></textarea>
     </div>
     <div class="mb-3">
-        <label asp-for="Livre.CategorieId" class="form-label">Catégorie ID</label>
-        <input asp-for="Livre.CategorieId" class="form-control" />
+        <label asp-for="Livre.CategorieId" class="form-label">Catégorie</label>
+        <select asp-for="Livre.CategorieId" asp-items="Model.CategorieOptions" class="form-control">
+            <option value="">-- Choisissez une catégorie --</option>
+        </select>
+        <span asp-validation-for="Livre.CategorieId" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>

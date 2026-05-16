@@ -3,26 +3,55 @@
 
 <h1>Catalogue des livres</h1>
 
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" name="search" value="@Model.Search"
+               class="form-control" placeholder="Rechercher un livre..." />
+        <button type="submit" class="btn btn-outline-primary">Rechercher</button>
+    </div>
+</form>
+
 <table class="table">
     <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Auteur</th>
-            <th>Disponible</th>
-            <th>Actions</th>
-        </tr>
+    <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Disponible</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var livre in Model.Livres)
-        {
-            <tr>
-                <td>@livre.Titre</td>
-                <td>@livre.Auteur</td>
-                <td>@(livre.Disponible ? "Oui" : "Non")</td>
-                <td>
-                    <a href="/Livres/Details/@livre.Id" class="btn btn-info btn-sm">Détails</a>
-                </td>
-            </tr>
-        }
+    @foreach (var livre in Model.Livres)
+    {
+        <tr>
+            <td>@livre.Titre</td>
+            <td>@livre.Auteur</td>
+            <td>@(livre.Disponible ? "Oui" : "Non")</td>
+            <td>
+                <a href="/Livres/Details/@livre.Id" class="btn btn-info btn-sm">Détails</a>
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
+
+<nav>
+    @if (Model.CurrentPage > 1)
+    {
+        <a asp-page="Index" asp-route-pageNumber="@(Model.CurrentPage - 1)"
+           asp-route-search="@Model.Search" class="btn btn-outline-secondary">← Précédent</a>
+    }
+
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <a asp-page="Index" asp-route-pageNumber="@i"
+           asp-route-search="@Model.Search"
+           class="btn btn-outline-primary @(i == Model.CurrentPage ? "active" : "")">@i</a>
+    }
+
+    @if (Model.CurrentPage < Model.TotalPages)
+    {
+        <a asp-page="Index" asp-route-pageNumber="@(Model.CurrentPage + 1)"
+           asp-route-search="@Model.Search" class="btn btn-outline-secondary">Suivant →</a>
+    }
+</nav>
